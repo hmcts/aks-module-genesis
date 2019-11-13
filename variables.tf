@@ -1,20 +1,4 @@
-variable "devops_key_vault" {
-  type = "string"
-}
-
-variable "remote_state_storage_account_name" {
-  type = "string"
-}
-
-variable "enable_debug" {
-  type = "string"
-}
-
-variable "deploy_environment" {
-  type = "string"
-}
-
-variable "tag_environment" {
+variable "key_vault_name" {
   type = "string"
 }
 
