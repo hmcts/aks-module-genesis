@@ -1,4 +1,4 @@
-variable "key_vault_name" {
+variable "devops_key_vault" {
   type = "string"
 }
 
