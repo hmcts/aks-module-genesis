@@ -5,7 +5,7 @@ variable "enable_debug" {
 # Common inputs for multiple resources
 variable "tags" {
   description = "A map of individual tags. Some default tags will also be applied"
-  type        = "map"
+  type        = map(string)
   default     = {}
 }
 
