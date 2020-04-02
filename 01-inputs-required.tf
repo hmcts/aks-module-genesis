@@ -1,12 +1,12 @@
 
 variable "devops_key_vault" {
-  type = "string"
+  type = string
 }
 
 variable "acr_private_repo" {
-  type = "string"
+  type = string
 }
 
 variable "acr_public_repo" {
-  type = "string"
+  type = string
 }
