@@ -3,7 +3,7 @@
 #--------------------------------------------------------------
 
 resource "azurerm_key_vault" "key_vault" {
-  name                = var.devops_key_vault
+  name                = "${var.service_name}-vault-${var.environment}"
   resource_group_name = azurerm_resource_group.genesis_resource_group.name
   location            = var.location
 

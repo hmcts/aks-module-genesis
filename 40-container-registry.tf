@@ -3,7 +3,7 @@
 #--------------------------------------------------------------
 
 resource "azurerm_container_registry" "infrastructure_container_registry_private" {
-  name                = var.acr_private_repo
+  name                = "mgmtprivate${var.environment}"
   resource_group_name = azurerm_resource_group.genesis_resource_group.name
   location            = var.location
   admin_enabled       = "true"
@@ -11,7 +11,7 @@ resource "azurerm_container_registry" "infrastructure_container_registry_private
 }
 
 resource "azurerm_container_registry" "infrastructure_container_registry_public" {
-  name                = var.acr_public_repo
+  name                = "mgmtpublic${var.environment}"
   resource_group_name = azurerm_resource_group.genesis_resource_group.name
   location            = var.location
   admin_enabled       = "true"
