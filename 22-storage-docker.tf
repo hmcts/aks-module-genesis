@@ -8,8 +8,8 @@ resource "azurerm_storage_account" "docker_storage_account" {
   location                 = var.location
   account_tier             = element(split("_", var.storage_account_type), 0)
   account_replication_type = element(split("_", var.storage_account_type), 1)
-  enable_blob_encryption   = "true"
-  enable_file_encryption   = "true"
+  # enable_blob_encryption   = "true" # Azurerm provider has removed these options, need to check this is turned on my default
+  # enable_file_encryption   = "true"
 
   tags = merge(
     map(
