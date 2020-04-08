@@ -8,6 +8,8 @@ variable "environment" {
   type = string
 }
 
+variable "hmcts_access_vault" {}
+
 data "azurerm_resource_group" "hmcts_control_resource_group" {
   name = "azure-control-sbox-rg"
 }
