@@ -14,7 +14,7 @@ output "value" {
 
 data "azurerm_storage_account" "terraform_storage_account" {
   name                = var.hmcts_access_vault
-  resource_group_name = "azure-control-${var.deploy_environment}-rg"
+  resource_group_name = "azure-control-${var.environment}-rg"
 }
 
 resource "azurerm_key_vault_secret" "terraform_remote_state_storage_account_access_key" {
