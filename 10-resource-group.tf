@@ -9,7 +9,7 @@ variable "environment" {
 }
 
 data "azurerm_resource_group" "hmcts_control_resource_group" {
-  resource_group_name = "azure-control-sbox-rg"
+  name = "azure-control-sbox-rg"
 }
 
 output "value" {
