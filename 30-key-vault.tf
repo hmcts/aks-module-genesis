@@ -2,8 +2,11 @@
 # Genesis - Infrastructure Key Vault
 #--------------------------------------------------------------
 
+data "azurerm_subscription" "current" {
+}
+
 resource "azurerm_key_vault" "key_vault" {
-  name                = "${var.service_name}-vault-${var.environment}"
+  name                = "${element(split("-", data.azurerm_subscription.current.display_name),2)}-vault-${element(split("-", data.azurerm_subscription.current.display_name),3)}"
   resource_group_name = azurerm_resource_group.genesis_resource_group.name
   location            = var.location
 
