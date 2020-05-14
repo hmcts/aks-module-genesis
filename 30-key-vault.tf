@@ -2,8 +2,6 @@
 # Genesis - Infrastructure Key Vault
 #--------------------------------------------------------------
 
-data "azurerm_subscription" "current" {
-}
 
 resource "azurerm_key_vault" "key_vault" {
   name                = "${element(split("-", data.azurerm_subscription.current.display_name),2)}-vault-${element(split("-", data.azurerm_subscription.current.display_name),3)}"
