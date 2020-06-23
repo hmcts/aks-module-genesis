@@ -62,15 +62,6 @@ resource "azurerm_key_vault_access_policy" "key_vault_access_policy" {
 
 # dcd_sp_ado_${ENV}_operations_v2
 
-
-variable "environment" {
-  default = "test"
-}
-data "azuread_group" "operations_group" {
-  name = "dcd_sp_ado_${var.environment}_operations_v2"
-}
-
-
 resource "azurerm_key_vault_access_policy" "ops_group_access_policy" {
   key_vault_id = azurerm_key_vault.key_vault.id
 
