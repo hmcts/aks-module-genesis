@@ -71,28 +71,18 @@ data "azuread_group" "operations_group" {
 }
 
 
-resource "azurerm_key_vault_access_policy" "key_vault_access_policy" {
+resource "azurerm_key_vault_access_policy" "ops_group_access_policy" {
   key_vault_id = azurerm_key_vault.key_vault.id
 
   tenant_id = data.azurerm_client_config.current.tenant_id
   object_id = data.azuread_group.operations_group.id
 
   key_permissions = [
-    "create",
     "decrypt",
     "delete",
     "encrypt",
     "get",
     "import",
-    "list",
-    "purge",
-    "recover",
-    "restore",
-    "sign",
-    "unwrapKey",
-    "update",
-    "verify",
-    "wrapKey",
   ]
 
   secret_permissions = [
