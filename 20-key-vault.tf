@@ -4,7 +4,7 @@
 
 
 resource "azurerm_key_vault" "key_vault" {
-  name                = "${replace(data.azurerm_subscription.current.display_name, "-", "")}kv"
+  name                = "${lower(replace(data.azurerm_subscription.current.display_name, "-", ""))}kv"
   resource_group_name = azurerm_resource_group.genesis_resource_group.name
   location            = var.location
 
