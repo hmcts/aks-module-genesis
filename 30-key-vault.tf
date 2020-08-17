@@ -3,6 +3,8 @@
 #--------------------------------------------------------------
 
 resource "azurerm_key_vault" "key_vault" {
+  count = contains(var.features, "key_vault") ? 1 : 0
+
   name                = "${var.service_name}-vault-${var.environment}"
   resource_group_name = azurerm_resource_group.genesis_resource_group.name
   location            = var.location
@@ -23,6 +25,8 @@ resource "azurerm_key_vault" "key_vault" {
 }
 
 resource "azurerm_key_vault_access_policy" "key_vault_access_policy" {
+  count = contains(var.features, "key_vault") ? 1 : 0
+
   key_vault_id = azurerm_key_vault.key_vault.id
 
   tenant_id = data.azurerm_client_config.current.tenant_id

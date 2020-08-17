@@ -16,3 +16,12 @@ variable "location" {
 variable "storage_account_type" {
   default = "Standard_LRS"
 }
+
+variable "features" {
+  type = list(string)
+  default = [
+    "storage_account",
+    "key_vault",
+    "container_registry"
+  ]
+}

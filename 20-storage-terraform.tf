@@ -3,6 +3,8 @@
 #--------------------------------------------------------------
 
 resource "azurerm_storage_account" "terraform_storage_account" {
+  count = contains(var.features, "storage_account") ? 1 : 0
+
   name                     = "${lower(random_id.random_id.hex)}terraform"
   resource_group_name      = azurerm_resource_group.genesis_resource_group.name
   location                 = var.location
@@ -23,6 +25,8 @@ resource "azurerm_storage_account" "terraform_storage_account" {
 }
 
 resource "azurerm_storage_container" "terraform_storage_container" {
+  count = contains(var.features, "storage_account") ? 1 : 0
+
   name                  = "terraform-state"
   storage_account_name  = azurerm_storage_account.terraform_storage_account.name
   container_access_type = "private"
