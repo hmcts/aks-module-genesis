@@ -1,6 +1,6 @@
 data "null_data_source" "key_vault_outputs" {
   inputs = {
-    azurerm_key_vault_id = azurerm_key_vault.key_vault.id
+    azurerm_key_vault_id = azurerm_key_vault.key_vault[0].id
   }
 }
 

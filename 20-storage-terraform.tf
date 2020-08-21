@@ -28,7 +28,7 @@ resource "azurerm_storage_container" "terraform_storage_container" {
   count = contains(var.features, "storage_account") ? 1 : 0
 
   name                  = "terraform-state"
-  storage_account_name  = azurerm_storage_account.terraform_storage_account.name
+  storage_account_name  = azurerm_storage_account.terraform_storage_account[0].name
   container_access_type = "private"
 
   lifecycle {
