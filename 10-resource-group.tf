@@ -5,7 +5,7 @@
 resource "azurerm_resource_group" "genesis_resource_group" {
   location = var.location
 
-  name = "genesis_resource_group"
+  name = "genesis_${var.service_name}_resource_group"
 }
 
 resource "random_id" "random_id" {
