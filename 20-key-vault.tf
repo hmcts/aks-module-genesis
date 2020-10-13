@@ -60,7 +60,6 @@ resource "azurerm_key_vault_access_policy" "key_vault_access_policy" {
 }
 
 
-# dcd_sp_ado_test_operations_v2
 
 resource "azurerm_key_vault_access_policy" "ops_group_access_policy" {
   key_vault_id = azurerm_key_vault.key_vault.id
