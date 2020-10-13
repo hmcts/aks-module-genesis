@@ -2,8 +2,9 @@
 # Genesis - Infrastructure Key Vault
 #--------------------------------------------------------------
 
+
 resource "azurerm_key_vault" "key_vault" {
-  name                = "${var.service_name}-vault-${var.environment}"
+  name                = "${lower(replace(data.azurerm_subscription.current.display_name, "-", ""))}kv"
   resource_group_name = azurerm_resource_group.genesis_resource_group.name
   location            = var.location
 
@@ -44,6 +45,34 @@ resource "azurerm_key_vault_access_policy" "key_vault_access_policy" {
     "update",
     "verify",
     "wrapKey",
+  ]
+
+  secret_permissions = [
+    "backup",
+    "delete",
+    "get",
+    "list",
+    "purge",
+    "recover",
+    "restore",
+    "set",
+  ]
+}
+
+
+
+resource "azurerm_key_vault_access_policy" "ops_group_access_policy" {
+  key_vault_id = azurerm_key_vault.key_vault.id
+
+  tenant_id = data.azurerm_client_config.current.tenant_id
+  object_id = data.azuread_group.operations_group.id
+
+  key_permissions = [
+    "decrypt",
+    "delete",
+    "encrypt",
+    "get",
+    "import",
   ]
 
   secret_permissions = [
