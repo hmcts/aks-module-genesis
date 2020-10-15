@@ -10,7 +10,7 @@ variable "tags" {
 }
 
 variable "location" {
-  default = "UK South"
+  default = "uksouth"
 }
 
 variable "storage_account_type" {

@@ -16,11 +16,7 @@ resource "azurerm_key_vault" "key_vault" {
   enabled_for_disk_encryption     = "true"
   enabled_for_template_deployment = "true"
 
-  tags = merge(
-    map(
-      "Name", format("devops_key_vault")
-    )
-  )
+  tags = var.tags
 }
 
 resource "azurerm_key_vault_access_policy" "key_vault_access_policy" {
