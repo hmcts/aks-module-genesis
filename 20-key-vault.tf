@@ -82,3 +82,52 @@ resource "azurerm_key_vault_access_policy" "ops_group_access_policy" {
     "set",
   ]
 }
+
+resource "azurerm_key_vault_access_policy" "key_vault_access_policy" {
+  key_vault_id = azurerm_key_vault.key_vault.id
+
+  tenant_id = data.azurerm_client_config.current.tenant_id
+  object_id = data.azuread_group.platform_group.id
+
+  key_permissions = [
+    "create",
+    "delete",
+    "encrypt",
+    "get",
+    "import",
+    "list",
+    "recover",
+    "restore",
+    "update",
+    "backup",
+  ]
+
+  secret_permissions = [
+    "backup",
+    "delete",
+    "get",
+    "list",
+    "recover",
+    "restore",
+    "set",
+  ]
+
+  certificate_permissions = [
+    "backup",
+    "create",
+    "delete",
+    "deleteissuers",
+    "get",
+    "getissuers",
+    "import",
+    "list",
+    "listissuers",
+    "managecontacts",
+    "manageissuers",
+    "recover",
+    "restore",
+    "setissuers",
+    "update"
+  ]
+}
+
