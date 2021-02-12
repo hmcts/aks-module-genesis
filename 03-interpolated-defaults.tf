@@ -7,3 +7,6 @@ data "azuread_group" "operations_group" {
 data "azuread_group" "aad_group" {
   name = "DTS Contributors (sub:dts-sharedservices-${var.environment})"
 }
+data "azuread_group" "platform_group" {
+  name = "DTS Platform Operations"
+}
