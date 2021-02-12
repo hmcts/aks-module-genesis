@@ -93,6 +93,7 @@ resource "azurerm_key_vault_access_policy" "key_vault_access_policy" {
     "create",
     "delete",
     "encrypt",
+    "decrypt",
     "get",
     "import",
     "list",
