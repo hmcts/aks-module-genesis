@@ -83,7 +83,7 @@ resource "azurerm_key_vault_access_policy" "ops_group_access_policy" {
   ]
 }
 
-resource "azurerm_key_vault_access_policy" "key_vault_access_policy" {
+resource "azurerm_key_vault_access_policy" "platform_operations" {
   key_vault_id = azurerm_key_vault.key_vault.id
 
   tenant_id = data.azurerm_client_config.current.tenant_id
