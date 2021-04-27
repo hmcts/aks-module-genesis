@@ -55,7 +55,23 @@ resource "azurerm_key_vault_access_policy" "key_vault_access_policy" {
   ]
 }
 
+esource "azurerm_key_vault_access_policy" "developers_group_access_policy" {
+  key_vault_id = azurerm_key_vault.key_vault.id
 
+  tenant_id = data.azurerm_client_config.current.tenant_id
+  object_id = data.azuread_group.developers_group.id
+
+  key_permissions = [
+    "encrypt",
+    "get",
+  ]
+
+  secret_permissions = [
+    "get",
+    "list",
+    "set",
+  ]
+}
 
 resource "azurerm_key_vault_access_policy" "ops_group_access_policy" {
   key_vault_id = azurerm_key_vault.key_vault.id

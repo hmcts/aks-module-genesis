@@ -10,3 +10,6 @@ data "azuread_group" "aad_group" {
 data "azuread_group" "platform_group" {
   name = "DTS Platform Operations"
 }
+data "azuread_group" "developers_group" {
+  name = "DTS (${var.platform}) Developers"
+}
