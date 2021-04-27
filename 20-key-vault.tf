@@ -63,7 +63,6 @@ resource "azurerm_key_vault_access_policy" "developers_group_access_policy" {
 
   key_permissions = [
     "encrypt",
-    "get",
   ]
 
   secret_permissions = [
