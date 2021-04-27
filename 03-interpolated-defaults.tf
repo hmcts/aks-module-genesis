@@ -11,5 +11,5 @@ data "azuread_group" "platform_group" {
   name = "DTS Platform Operations"
 }
 data "azuread_group" "developers_group" {
-  name = "${var.developers}"
+  name = var.developers_group
 }

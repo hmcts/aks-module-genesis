@@ -1,2 +1,2 @@
 variable "environment" {}
-variable "developers" {}
+variable "developers_group" {}
