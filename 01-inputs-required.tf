@@ -1,2 +1,2 @@
 variable "environment" {}
-variable "platform" {}
+variable "developers" {}
