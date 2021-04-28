@@ -15,6 +15,7 @@ resource "azurerm_key_vault" "key_vault" {
   enabled_for_deployment          = "true"
   enabled_for_disk_encryption     = "true"
   enabled_for_template_deployment = "true"
+  soft_delete_retention_days = 30
 
   tags = var.tags
 }
