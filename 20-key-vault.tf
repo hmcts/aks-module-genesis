@@ -15,6 +15,7 @@ resource "azurerm_key_vault" "key_vault" {
   enabled_for_deployment          = "true"
   enabled_for_disk_encryption     = "true"
   enabled_for_template_deployment = "true"
+  soft_delete_retention_days      = 30
 
   tags = var.tags
 }
@@ -23,7 +24,7 @@ resource "azurerm_key_vault_access_policy" "key_vault_access_policy" {
   key_vault_id = azurerm_key_vault.key_vault.id
 
   tenant_id = data.azurerm_client_config.current.tenant_id
-  object_id = data.azuread_group.aad_group.id  
+  object_id = data.azuread_group.aad_group.id
 
   key_permissions = [
     "create",
