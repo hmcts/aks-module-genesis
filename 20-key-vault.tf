@@ -5,7 +5,7 @@
 
 resource "azurerm_key_vault" "key_vault" {
   # quick fix to unblock me
-  name                = data.azurerm_subscription.current.display_name == "dtssharedservicesptlsbox" ? "dtssdsptlsbox" : "${lower(replace(data.azurerm_subscription.current.display_name, "-", ""))}kv"
+  name                = data.azurerm_subscription.current.display_name == "DTS-SHAREDSERVICESPTL-SBOX" ? "dtssdsptlsbox" : "${lower(replace(data.azurerm_subscription.current.display_name, "-", ""))}kv"
   resource_group_name = azurerm_resource_group.genesis_resource_group.name
   location            = var.location
 
