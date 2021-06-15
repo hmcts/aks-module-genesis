@@ -15,7 +15,7 @@ data "azuread_group" "operations_group" {
   display_name = "DTS Operations (env:${var.environment})"
 }
 data "azuread_group" "aad_group" {
-  display_name = local.environment
+  display_name = "DTS Contributors (sub:dts-sharedservices-${local.environment})"
 }
 data "azuread_group" "platform_group" {
   display_name = "DTS Platform Operations"
