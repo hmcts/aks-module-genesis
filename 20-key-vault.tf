@@ -2,10 +2,9 @@
 # Genesis - Infrastructure Key Vault
 #--------------------------------------------------------------
 
-
 resource "azurerm_key_vault" "key_vault" {
   # quick fix to unblock me
-  name                = data.azurerm_subscription.current.display_name == "DTS-SHAREDSERVICESPTL-SBOX" ? "dtssdsptlsbox" : "${lower(replace(data.azurerm_subscription.current.display_name, "-", ""))}kv"
+  name                = local.key_vault_name
   resource_group_name = azurerm_resource_group.genesis_resource_group.name
   location            = var.location
 
