@@ -3,7 +3,6 @@
 #--------------------------------------------------------------
 
 resource "azurerm_key_vault" "key_vault" {
-  # quick fix to unblock me
   name                = local.key_vault_name
   resource_group_name = azurerm_resource_group.genesis_resource_group.name
   location            = var.location
