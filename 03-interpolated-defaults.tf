@@ -1,7 +1,7 @@
 locals {
   
-  environment = var.environment == "ptlsbox" ? "ptl-sbox" : var.environment
-  aad_group_name = contains(["ptlsbox", "ptl"], var.environment) ? "DTS Contributors (sub:dts-sharedservices${local.environment})" : "DTS Contributors (sub:dts-sharedservices-${local.environment})"
+  sub_env = var.environment == "ptlsbox" ? "ptl-sbox" : var.environment
+  aad_group_name = contains(["ptlsbox", "ptl"], var.environment) ? "DTS Contributors (sub:dts-sharedservices${local.sub_env})" : "DTS Contributors (sub:dts-sharedservices-${local.sub_env})"
   
   # Temporary until all key vaults have been updated to use the naming convention
   key_vault_name = contains(["ptlsbox", "ptl"], var.environment) ? "dtssds${var.environment}" : "${lower(replace(data.azurerm_subscription.current.display_name, "-", ""))}kv"
