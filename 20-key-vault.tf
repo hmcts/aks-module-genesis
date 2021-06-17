@@ -56,15 +56,15 @@ resource "azurerm_key_vault_access_policy" "key_vault_access_policy" {
   ]
 }
 
-resource "azurerm_key_vault_access_policy" "aks-sbox-mi_group" {
+resource "azurerm_key_vault_access_policy" "aks-sbox-mi" {
   key_vault_id = azurerm_key_vault.key_vault.id
 
   tenant_id = data.azurerm_client_config.current.tenant_id
-  object_id = data.azuread_group.aks-sbox-mi_group.id
+  object_id = data.azuread_group.aks-sbox-mi.id
 
   secret_permissions = [
     "list",
-    "set",
+    "get",
   ]
 }
 
