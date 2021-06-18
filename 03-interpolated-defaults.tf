@@ -13,7 +13,5 @@ data "azuread_group" "platform_group" {
 data "azuread_group" "developers_group" {
   name = var.developers_group
 }
-
-data "azuread_group" "aks-sbox-mi" {
-  name = var.aks-sbox-mi
+data "azurerm_client_config" "aks-sbox-mi" {
 }

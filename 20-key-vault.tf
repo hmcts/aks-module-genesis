@@ -56,16 +56,10 @@ resource "azurerm_key_vault_access_policy" "key_vault_access_policy" {
   ]
 }
 
-resource "azurerm_key_vault_access_policy" "aks-sbox-mi" {
-  key_vault_id = azurerm_key_vault.key_vault.id
-
-  tenant_id = data.azurerm_client_config.current.tenant_id
-  object_id = data.azuread_group.aks-sbox-mi.id
-
-  secret_permissions = [
-    "list",
-    "get",
-  ]
+resource "azurerm_role_assignment" "aks-sbox-mi" {
+  scope                = data.azurerm_subscription.current.id
+  role_definition_name = "Key Vault Secrets User"
+  principal_id         = data.azurerm_client_config.aks-sbox-mi.object_id
 }
 
 resource "azurerm_key_vault_access_policy" "developers_group_access_policy" {
