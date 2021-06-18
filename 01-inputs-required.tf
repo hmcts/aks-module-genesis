@@ -1,3 +1,3 @@
 variable "environment" {}
 variable "developers_group" {}
-variable "aks-sbox-mi" {}
+variable "managed_identity_id" {}
