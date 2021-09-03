@@ -9,6 +9,7 @@ data "azuread_group" "aad_group" {
 }
 data "azuread_group" "platform_group" {
   name = "DTS Platform Operations"
+  security_enabled = true
 }
 data "azuread_group" "developers_group" {
   name = var.developers_group
