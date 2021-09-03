@@ -17,7 +17,8 @@ data "azuread_group" "aad_group" {
   display_name = local.aad_group_name
 }
 data "azuread_group" "platform_group" {
-  object_id = "e7ea2042-4ced-45dd-8ae3-e051c6551789"
+  display_name = "DTS Platform Operations"
+  security_enabled = true
 }
 data "azuread_group" "developers_group" {
   display_name = var.developers_group
