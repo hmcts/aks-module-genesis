@@ -18,5 +18,5 @@ data "azuread_group" "platform_group" {
   security_enabled = true
 }
 data "azuread_group" "developers_group" {
-  display_name = "DTS SDS Developers" || "DTS Readers"
+  display_name = contains(["DTS"], var.developers_group) ? "DTS SDS Developers" : "DTS Readers (sub:dts-sharedservices-${local.sub_env})"
 }
