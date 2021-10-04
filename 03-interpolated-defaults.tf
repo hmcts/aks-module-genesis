@@ -3,6 +3,8 @@ locals {
   sub_env        = var.environment == "ptlsbox" ? "ptl-sbox" : var.environment
   aad_group_name = contains(["ptlsbox", "ptl"], var.environment) ? "DTS Contributors (sub:dts-sharedservices${local.sub_env})" : "DTS Contributors (sub:dts-sharedservices-${local.sub_env})"
 
+  project = contains(["sds"], var.developers_group) ? "sds" : "cft"
+
 }
 data "azurerm_subscription" "current" {}
 data "azurerm_client_config" "current" {}
