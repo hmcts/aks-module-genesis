@@ -1,4 +1,4 @@
-resource "azurerm_public_ip" "public-lb" {
+resource "azurerm_public_ip" "this" {
   for_each = toset(var.public_ip_names)
 
   name                = each.value
