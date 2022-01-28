@@ -24,5 +24,5 @@ variable "public_ip_names" {
 
 variable "project" {
   description = "Name of project"
-  default = "cft"
+  default = ""
 }
