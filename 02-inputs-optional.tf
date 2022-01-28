@@ -16,3 +16,8 @@ variable "location" {
 variable "storage_account_type" {
   default = "Standard_LRS"
 }
+
+variable "public_ip_names" {
+  description = "A list of names of public IP addresses that are required."
+  default = []
+}
