@@ -129,21 +129,21 @@ resource "azurerm_key_vault_access_policy" "platform_operations" {
   ]
 
   certificate_permissions = [
-    "backup",
-    "create",
-    "delete",
-    "deleteissuers",
-    "get",
-    "getissuers",
-    "import",
-    "list",
-    "listissuers",
-    "managecontacts",
-    "manageissuers",
-    "recover",
-    "restore",
-    "setissuers",
-    "update"
+    "Backup",
+    "Create",
+    "Delete",
+    "DeleteIssuers",
+    "Get",
+    "GetIssuers",
+    "Import",
+    "List",
+    "ListIssuers",
+    "ManageContacts",
+    "ManageIssuers",
+    "Recover",
+    "Restore",
+    "SetIssuers",
+    "Update"
   ]
 }
 
