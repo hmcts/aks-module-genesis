@@ -27,32 +27,32 @@ resource "azurerm_key_vault_access_policy" "key_vault_access_policy" {
   object_id = data.azuread_group.aad_group.id
 
   key_permissions = [
-    "create",
-    "decrypt",
-    "delete",
-    "encrypt",
-    "get",
-    "import",
-    "list",
-    "purge",
-    "recover",
-    "restore",
-    "sign",
-    "unwrapKey",
-    "update",
-    "verify",
-    "wrapKey",
+    "Create",
+    "Decrypt",
+    "Delete",
+    "Encrypt",
+    "Get",
+    "Import",
+    "List",
+    "Purge",
+    "Recover",
+    "Restore",
+    "Sign",
+    "UnwrapKey",
+    "Update",
+    "Verify",
+    "WrapKey",
   ]
 
   secret_permissions = [
-    "backup",
-    "delete",
-    "get",
-    "list",
-    "purge",
-    "recover",
-    "restore",
-    "set",
+    "Backup",
+    "Delete",
+    "Get",
+    "List",
+    "Purge",
+    "Recover",
+    "Restore",
+    "Set",
   ]
 }
 
@@ -63,12 +63,12 @@ resource "azurerm_key_vault_access_policy" "developers_group_access_policy" {
   object_id = data.azuread_group.developers_group.id
 
   key_permissions = [
-    "encrypt",
+    "Encrypt",
   ]
 
   secret_permissions = [
-    "list",
-    "set",
+    "List",
+    "Set",
   ]
 }
 
@@ -79,22 +79,22 @@ resource "azurerm_key_vault_access_policy" "ops_group_access_policy" {
   object_id = data.azuread_group.operations_group.id
 
   key_permissions = [
-    "decrypt",
-    "delete",
-    "encrypt",
-    "get",
-    "import",
+    "Decrypt",
+    "Delete",
+    "Encrypt",
+    "Get",
+    "Import",
   ]
 
   secret_permissions = [
-    "backup",
-    "delete",
-    "get",
-    "list",
-    "purge",
-    "recover",
-    "restore",
-    "set",
+    "Backup",
+    "Delete",
+    "Get",
+    "List",
+    "Purge",
+    "Recover",
+    "Restore",
+    "Set",
   ]
 }
 
@@ -105,45 +105,45 @@ resource "azurerm_key_vault_access_policy" "platform_operations" {
   object_id = data.azuread_group.platform_group.id
 
   key_permissions = [
-    "create",
-    "delete",
-    "encrypt",
-    "decrypt",
-    "get",
-    "import",
-    "list",
-    "recover",
-    "restore",
-    "update",
-    "backup",
+    "Create",
+    "Delete",
+    "Encrypt",
+    "Decrypt",
+    "Get",
+    "Import",
+    "List",
+    "Recover",
+    "Restore",
+    "Update",
+    "Backup",
   ]
 
   secret_permissions = [
-    "backup",
-    "delete",
-    "get",
-    "list",
-    "recover",
-    "restore",
-    "set",
+    "Backup",
+    "Delete",
+    "Get",
+    "List",
+    "Recover",
+    "Restore",
+    "Set",
   ]
 
   certificate_permissions = [
-    "backup",
-    "create",
-    "delete",
-    "deleteissuers",
-    "get",
-    "getissuers",
-    "import",
-    "list",
-    "listissuers",
-    "managecontacts",
-    "manageissuers",
-    "recover",
-    "restore",
-    "setissuers",
-    "update"
+    "Backup",
+    "Create",
+    "Delete",
+    "DeleteIssuers",
+    "Get",
+    "GetIssuers",
+    "Import",
+    "List",
+    "ListIssuers",
+    "ManageContacts",
+    "ManageIssuers",
+    "Recover",
+    "Restore",
+    "SetIssuers",
+    "Update"
   ]
 }
 
