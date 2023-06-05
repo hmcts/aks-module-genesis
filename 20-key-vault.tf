@@ -1,7 +1,9 @@
 #--------------------------------------------------------------
 # Genesis - Infrastructure Key Vault
 #--------------------------------------------------------------
-
+output "project" {
+  value = local.project
+}
 
 resource "azurerm_key_vault" "key_vault" {
   name                = contains(["ptlsbox", "ptl"], var.environment) ? "dts${local.project}${replace(var.environment, "-", "")}" : "${lower(replace(data.azurerm_subscription.current.display_name, "-", ""))}kv"
