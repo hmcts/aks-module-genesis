@@ -2,7 +2,7 @@ locals {
 
   sub_env        = var.environment == "ptlsbox" ? "ptl-sbox" : var.environment
   
-  aad_group_name = var.environment == "ptl" && local.project == "cft" ? "DTS Contributors (sub:dts-cftptl-intsvc)" : (var.environment == "ptlsbox" && local.project == "cft" ? "DTS Contributors (sub:dts-cftsbox-intsvc)" : var.environment == "ptl" && local.project == "sds" ? "DTS Contributors (sub:dts-sharedservicesptl)" : (var.environment == "ptlsbox" && local.project == "sds" ? "DTS Contributors (sub:dts-sharedservicesptl-sbox)" : (!contains(["ptl","ptlsbox"], var.environment) && local.project == "sds" ? "DTS Contributors (sub:dts-sharedservicesptl-sbox)" : "DTS Contributors (sub:dcd-cftapps-${local.sub_env})")))
+  aad_group_name = var.environment == "ptl" && local.project == "cft" ? "DTS Contributors (sub:dts-cftptl-intsvc)" : (var.environment == "ptlsbox" && local.project == "cft" ? "DTS Contributors (sub:dts-cftsbox-intsvc)" : var.environment == "ptl" && local.project == "sds" ? "DTS Contributors (sub:dts-sharedservicesptl)" : (var.environment == "ptlsbox" && local.project == "sds" ? "DTS Contributors (sub:dts-sharedservicesptl-sbox)" : (!contains(["ptl","ptlsbox"], var.environment) && local.project == "sds" ? "DTS Contributors (sub:dts-sharedservices-${local.sub_env})" : "DTS Contributors (sub:dcd-cftapps-${local.sub_env})")))
 
   project = length(regexall(".*cft*.", lower(data.azurerm_subscription.current.display_name))) > 0 ? "cft" : "sds"
 
