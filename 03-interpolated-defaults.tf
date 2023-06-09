@@ -2,7 +2,7 @@ locals {
 
   sub_env        = var.environment == "ptlsbox" ? "ptl-sbox" : var.environment
   
-  aad_group_name = contains(["ptlsbox", "ptl"], var.environment) ? local.contributors_group["${local.business_area}-${var.environment}"] : local.contributors_group["${local.business_area}-env"]
+  aad_group_name = contains(["ptlsbox", "ptl"], var.environment) ? local.contributors_group["${var.business_area}-${var.environment}"] : local.contributors_group["${var.business_area}-env"]
 
   contributors_group = {
     "cft-ptl" = "DTS Contributors (sub:dts-cftptl-intsvc)"
@@ -12,8 +12,6 @@ locals {
     "sds-ptlsbox" = "DTS Contributors (sub:dts-sharedservicesptl-sbox)"
     "sds-env" = "DTS Contributors (sub:dts-sharedservices-${local.sub_env})"
     }
-
-  business_area = var.business_area == "cft" ? var.business_area : "sds"
 
 }
 data "azurerm_subscription" "current" {}
