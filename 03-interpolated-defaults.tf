@@ -25,7 +25,7 @@ aad_group_name = contains(["ptlsbox", "ptl"], var.environment) ? keys(local.cont
     }
   }
 
-  business_area = var.business_area != "cft" ? "sds" : var.business_area
+  business_area = var.business_area == "cft" ? var.business_area : "sds"
 
 }
 data "azurerm_subscription" "current" {}
