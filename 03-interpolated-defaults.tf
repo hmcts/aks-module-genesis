@@ -2,28 +2,16 @@ locals {
 
   sub_env        = var.environment == "ptlsbox" ? "ptl-sbox" : var.environment
   
-  aad_group_name = contains(["ptlsbox", "ptl"], var.environment) ? keys(local.contributors_group["${local.business_area}-${var.environment}"])[0] : keys(local.contributors_group["${local.business_area}-env"])[0]
+  aad_group_name = contains(["ptlsbox", "ptl"], var.environment) ? local.contributors_group["${local.business_area}-${var.environment}"] : local.contributors_group["${local.business_area}-env"]
 
   contributors_group = {
-    "cft-ptl" = {
-      "DTS Contributors (sub:dts-cftptl-intsvc)" = {}
+    "cft-ptl" = "DTS Contributors (sub:dts-cftptl-intsvc)"
+    "cft-ptlsbox" = "DTS Contributors (sub:dts-cftsbox-intsvc)" 
+    "cft-env" = "DTS Contributors (sub:dcd-cftapps-${local.sub_env})"
+    "sds-ptl" = "DTS Contributors (sub:dts-sharedservicesptl)"
+    "sds-ptlsbox" = "DTS Contributors (sub:dts-sharedservicesptl-sbox)"
+    "sds-env" = "DTS Contributors (sub:dts-sharedservices-${local.sub_env})"
     }
-    "cft-ptlsbox" = {
-      "DTS Contributors (sub:dts-cftsbox-intsvc)" = {}
-    }
-    "cft-env" = {
-      "DTS Contributors (sub:dcd-cftapps-${local.sub_env})" = {}
-    }
-    "sds-ptl" = {
-      "DTS Contributors (sub:dts-sharedservicesptl)" = {}
-    }
-    "sds-ptlsbox" = {
-      "DTS Contributors (sub:dts-sharedservicesptl-sbox)" = {}
-    }
-    "sds-env" = {
-      "DTS Contributors (sub:dts-sharedservices-${local.sub_env})" = {}
-    }
-  }
 
   business_area = var.business_area == "cft" ? var.business_area : "sds"
 
