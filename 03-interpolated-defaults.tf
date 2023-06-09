@@ -1,10 +1,19 @@
 locals {
 
   sub_env        = var.environment == "ptlsbox" ? "ptl-sbox" : var.environment
-  aad_group_name = contains(["ptlsbox", "ptl"], var.environment) ? "DTS Contributors (sub:dts-sharedservices${local.sub_env})" : "DTS Contributors (sub:dts-sharedservices-${local.sub_env})"
-
   
-  project = length(regexall(".*sds.*", lower(var.developers_group))) > 0 ? "sds" : "cft"
+  aad_group_name = contains(["ptlsbox", "ptl"], var.environment) ? local.contributors_group["${local.business_area}-${var.environment}"] : local.contributors_group["${local.business_area}-env"]
+
+  contributors_group = {
+    "cft-ptl" = "DTS Contributors (sub:dts-cftptl-intsvc)"
+    "cft-ptlsbox" = "DTS Contributors (sub:dts-cftsbox-intsvc)" 
+    "cft-env" = "DTS Contributors (sub:dcd-cftapps-${local.sub_env})"
+    "sds-ptl" = "DTS Contributors (sub:dts-sharedservicesptl)"
+    "sds-ptlsbox" = "DTS Contributors (sub:dts-sharedservicesptl-sbox)"
+    "sds-env" = "DTS Contributors (sub:dts-sharedservices-${local.sub_env})"
+    }
+
+  business_area = var.business_area == "cross-cutting" ? "sds" : var.business_area
 
 }
 data "azurerm_subscription" "current" {}
