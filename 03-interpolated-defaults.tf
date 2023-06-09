@@ -13,7 +13,7 @@ locals {
     "sds-env" = "DTS Contributors (sub:dts-sharedservices-${local.sub_env})"
     }
 
-  business_area = var.business_area == "cft" ? var.business_area : "sds"
+  business_area = var.business_area == "cross-cutting" ? "sds : var.business_area
 
 }
 data "azurerm_subscription" "current" {}
