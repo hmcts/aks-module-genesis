@@ -2,7 +2,7 @@ locals {
 
   sub_env        = var.environment == "ptlsbox" ? "ptl-sbox" : var.environment
   
-aad_group_name = contains(["ptlsbox", "ptl"], var.environment) ? keys(local.contributors_group["${local.business_area}-${var.environment}"])[0] : keys(local.contributors_group["${local.business_area}-env"])[0]
+  aad_group_name = contains(["ptlsbox", "ptl"], var.environment) ? keys(local.contributors_group["${local.business_area}-${var.environment}"])[0] : keys(local.contributors_group["${local.business_area}-env"])[0]
 
   contributors_group = {
     "cft-ptl" = {
