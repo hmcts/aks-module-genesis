@@ -117,6 +117,7 @@ resource "azurerm_key_vault_access_policy" "platform_operations" {
     "Restore",
     "Update",
     "Backup",
+    "GetRotationPolicy"
   ]
 
   secret_permissions = [
