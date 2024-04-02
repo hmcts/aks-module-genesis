@@ -85,6 +85,7 @@ resource "azurerm_key_vault_access_policy" "ops_group_access_policy" {
     "Encrypt",
     "Get",
     "Import",
+    "GetRotationPolicy",
   ]
 
   secret_permissions = [
@@ -117,7 +118,6 @@ resource "azurerm_key_vault_access_policy" "platform_operations" {
     "Restore",
     "Update",
     "Backup",
-    "GetRotationPolicy"
   ]
 
   secret_permissions = [
