@@ -24,7 +24,7 @@ resource "azurerm_key_vault_access_policy" "key_vault_access_policy" {
   key_vault_id = azurerm_key_vault.key_vault.id
 
   tenant_id = data.azurerm_client_config.current.tenant_id
-  object_id = data.azuread_group.aad_group.id
+  object_id = data.azuread_group.aad_group.object_id
 
   key_permissions = [
     "Create",
@@ -60,7 +60,7 @@ resource "azurerm_key_vault_access_policy" "developers_group_access_policy" {
   key_vault_id = azurerm_key_vault.key_vault.id
 
   tenant_id = data.azurerm_client_config.current.tenant_id
-  object_id = data.azuread_group.developers_group.id
+  object_id = data.azuread_group.developers_group.object_id
 
   key_permissions = [
     "Encrypt",
@@ -77,7 +77,7 @@ resource "azurerm_key_vault_access_policy" "ops_group_access_policy" {
   key_vault_id = azurerm_key_vault.key_vault.id
 
   tenant_id = data.azurerm_client_config.current.tenant_id
-  object_id = data.azuread_group.operations_group.id
+  object_id = data.azuread_group.operations_group.object_id
 
   key_permissions = [
     "Decrypt",
@@ -104,7 +104,7 @@ resource "azurerm_key_vault_access_policy" "platform_operations" {
   key_vault_id = azurerm_key_vault.key_vault.id
 
   tenant_id = data.azurerm_client_config.current.tenant_id
-  object_id = data.azuread_group.platform_group.id
+  object_id = data.azuread_group.platform_group.object_id
 
   key_permissions = [
     "Create",
