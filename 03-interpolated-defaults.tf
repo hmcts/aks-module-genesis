@@ -16,6 +16,13 @@ locals {
   business_area = var.business_area == "cross-cutting" ? "sds" : var.business_area
 
 }
+
+provider "azurerm" {
+  alias           = "jenkins-azurerm"
+  features {}
+  subscription_id = var.jenkins_provider_sub_id
+}
+
 data "azurerm_subscription" "current" {}
 data "azurerm_client_config" "current" {}
 
@@ -34,6 +41,7 @@ data "azuread_group" "developers_group" {
 }
 
 data "azurerm_user_assigned_identity" "jenkins" {
+  provider            = azurerm.jenkins-azurerm
   name                = "jenkins-${var.environment}-mi"
   resource_group_name = "managed-identities-${var.environment}-rg"
 }
