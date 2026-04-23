@@ -11,7 +11,7 @@ locals {
     "sds-ptl" = "DTS Contributors (sub:dts-sharedservicesptl)"
     "sds-ptlsbox" = "DTS Contributors (sub:dts-sharedservicesptl-sbox)"
     "sds-env" = "DTS Contributors (sub:dts-sharedservices-${local.sub_env})"
-    }
+  }
 
   business_area = var.business_area == "cross-cutting" ? "sds" : var.business_area
 
@@ -42,6 +42,6 @@ data "azuread_group" "developers_group" {
 
 data "azurerm_user_assigned_identity" "jenkins" {
   provider            = azurerm.jenkins-azurerm
-  name                = "jenkins-${var.environment}-mi"
-  resource_group_name = "managed-identities-${var.environment}-rg"
+  name                = var.jenkins_mi_name
+  resource_group_name = var.jenkins_mi_rg_name
 }
