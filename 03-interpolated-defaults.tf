@@ -32,3 +32,8 @@ data "azuread_group" "platform_group" {
 data "azuread_group" "developers_group" {
   display_name = var.developers_group
 }
+
+data "azurerm_user_assigned_identity" "jenkins" {
+  name                = "jenkins-${var.environment}-mi"
+  resource_group_name = "managed-identities-${var.environment}-rg"
+}

@@ -149,3 +149,14 @@ resource "azurerm_key_vault_access_policy" "platform_operations" {
   ]
 }
 
+resource "azurerm_key_vault_access_policy" "jenkins_group_access_policy" {
+  key_vault_id = azurerm_key_vault.key_vault.id
+
+  tenant_id = data.azurerm_client_config.current.tenant_id
+  object_id = data.azurerm_user_assigned_identity.jenkins.principal_id
+  
+  secret_permissions = [
+    "List",
+    "Get",
+  ]
+}
