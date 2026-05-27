@@ -15,6 +15,7 @@ resource "azurerm_key_vault" "key_vault" {
   enabled_for_deployment          = "true"
   enabled_for_disk_encryption     = "true"
   enabled_for_template_deployment = "true"
+  purge_protection_enabled        = var.purge_protection_enabled
   soft_delete_retention_days      = 30
 
   tags = var.tags
@@ -148,4 +149,3 @@ resource "azurerm_key_vault_access_policy" "platform_operations" {
     "Update"
   ]
 }
-
